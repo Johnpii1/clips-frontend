@@ -18,28 +18,16 @@ import PerformanceMonitor from "@/components/PerformanceMonitor";
 import FontPreload from "@/components/FontPreload";
 import DataSyncProvider from "@/components/DataSyncProvider";
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
 const KeyboardShortcuts = dynamic(() => import("@/components/KeyboardShortcuts"), {
   ssr: false,
 });
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
 const CookieConsent = dynamic(() => import("@/components/CookieConsent"), {
   ssr: false,
 });
 
-/**
- * Inter font configuration with performance optimizations:
- * - Subsets: latin + latin-ext for European languages
- * - display: "swap" - Shows fallback immediately, swaps when loaded (FOUT strategy)
- * - preload: true - Eager load for LCP improvements
- * - adjustFontFallback: "Arial" - Smooth visual transition on swap
- * 
- * Font subsetting reduces file size by ~60% for most use cases.
- * See: https://web.dev/articles/variable-fonts-optimize-performance
- */
-const inter = Inter({ 
-  subsets: ["latin", "latin-ext"], 
+const inter = Inter({
+  subsets: ["latin", "latin-ext"],
   display: "swap",
   variable: "--font-inter",
   preload: true,
@@ -48,25 +36,28 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://clipcash.ai"),
-  title: "ClipCash - AI Clipping V2.0",
-  description: "Turn 1 long video into 100+ viral clips. Preview, pick, post & mint.",
+  title: "ClipCash — AI Video Clipping Platform",
+  description:
+    "Turn long-form videos into engaging short clips with AI. Review, select, publish, and explore digital ownership with ClipCash.",
   openGraph: {
     type: "website",
-    title: "ClipCash - AI Clipping V2.0",
-    description: "Turn 1 long video into 100+ viral clips. Preview, pick, post & mint.",
+    title: "ClipCash — AI Video Clipping Platform",
+    description:
+      "Turn long-form videos into engaging short clips with AI. Review, select, publish, and explore digital ownership with ClipCash.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "ClipCash - AI Video Clipping Platform",
+        alt: "ClipCash — AI Video Clipping Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ClipCash - AI Clipping V2.0",
-    description: "Turn 1 long video into 100+ viral clips. Preview, pick, post & mint.",
+    title: "ClipCash — AI Video Clipping Platform",
+    description:
+      "Turn long-form videos into engaging short clips with AI. Review, select, publish, and explore digital ownership with ClipCash.",
     images: ["/og-image.png"],
   },
 };
@@ -90,20 +81,20 @@ export default function RootLayout({
           <ErrorBoundary>
             <I18nProvider>
               <DataSyncProvider>
-              <AuthProvider>
-                <ToastProvider>
-                  <NetworkProvider>
-                    <WalletProvider>
-                      <StellarWalletProvider>
-                      <AnalyticsProvider />
-                      <KeyboardShortcuts />
-                      {children}
-                      <RateLimitToast />
-                      </StellarWalletProvider>
-                    </WalletProvider>
-                  </NetworkProvider>
-                </ToastProvider>
-              </AuthProvider>
+                <AuthProvider>
+                  <ToastProvider>
+                    <NetworkProvider>
+                      <WalletProvider>
+                        <StellarWalletProvider>
+                          <AnalyticsProvider />
+                          <KeyboardShortcuts />
+                          {children}
+                          <RateLimitToast />
+                        </StellarWalletProvider>
+                      </WalletProvider>
+                    </NetworkProvider>
+                  </ToastProvider>
+                </AuthProvider>
               </DataSyncProvider>
             </I18nProvider>
           </ErrorBoundary>
