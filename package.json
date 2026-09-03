@@ -1,5 +1,5 @@
 {
-  "name": "clipsproject",
+  "name": "clipcash",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -73,13 +73,13 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.2",
     "eslint-plugin-storybook": "^10.4.1",
-    "fast-check": "^3.23.2",
+    "fast-check": "^3.23.0",
     "husky": "^9.0.0",
     "ioredis": "^5.4.0",
     "jest": "^30.3.0",
     "jest-environment-jsdom": "^30.3.0",
     "lint-staged": "^15.0.0",
-    "pixelmatch": "^7.1.0",
+    "pixelmatch": "^7.1.2",
     "playwright": "^1.60.0",
     "prettier": "^3.5.3",
     "prisma": "^6.1.0",
